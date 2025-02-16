@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controllers/controller");
 
-router.get("/books", controller.getBooks);
-router.post("/books", controller.createBook);
-router.put("/books/:id", controller.updateBook);
-router.delete("/books/:id", controller.deleteBook);
+const sensorRoutes = require("./sensors");  // Importar las rutas de sensores
+const booksRoutes = require("./sensors");  // Parece que aquí defines rutas para libros
+const configRoutes = require("./config");  // Asegúrate de tener este archivo si lo usas
+
+// Usar las rutas correctamente
+router.use("/sensors", sensorRoutes);  // Esto hará que las rutas sean /api/sensors
+router.use("/books", booksRoutes);  // Ahora se accede con /api/books
+router.use("/config", configRoutes);
 
 module.exports = router;

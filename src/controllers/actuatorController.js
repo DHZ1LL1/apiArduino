@@ -1,4 +1,4 @@
-const { io } = require("../server");
+const { io } = require("../../server");
 
 // Controlar un LED
 exports.controlLED = (req, res) => {
